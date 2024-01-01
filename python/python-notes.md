@@ -1014,3 +1014,6 @@ res = removeDuplicates(lst)
 
 
 ```
+`x = x + $\Delta (x)`
+
+$\sum_{n=1}^{10} n^2$

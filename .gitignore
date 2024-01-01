@@ -2,3 +2,11 @@
 pyProject
 
 # python files (downloaded)
+
+# jupyter notebook checkpoints
+python/.ipynb_checkpoints
+
+# any executable
+*.exe
+*.exe.stackdump
+
