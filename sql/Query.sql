@@ -1,0 +1,31 @@
+-- SHOW DATABASES;
+-- USE practice;
+SHOW TABLES;
+CREATE TABLE Faculty
+(
+	fid INT PRIMARY KEY AUTO_INCREMENT,
+	fname VARCHAR(20) NOT NULL,
+	age SMALLINT NOT NULL,
+	degree VARCHAR(20) NOT NULL,
+	CONSTRAINT age_not_between_24and65 CHECK (age >= 24 AND age < 65) 
+);
+
+-- DROP TABLE faculty;
+-- DESC faculty;
+-- SELECT * FROM faculty;
+
+CREATE TABLE Faculty
+(
+    sid INT AUTO_INCREMENT PRIMARY KEY,
+    sname VARCHAR(20) NOT NULL,
+    course VARCHAR(20) NOT NULL,
+    syear VARCHAR(10),
+    phone INT,
+    pass VARCHAR(15) NOT NULL,
+    CONSTRAINT invalid_phone CHECK (CHAR_LENGTH(CAST(phone AS CHAR(10))) = 10),
+    CONSTRAINT weak_password CHECK (CHAR_LENGTH(pass) >= 8)
+);
+
+-- SELECT YEAR();
+-- SELECT VALIDATE_PASSWORD_STRENGTH('royCoder_webVC23');
+-- SELECT LENGTH(890237187799);
