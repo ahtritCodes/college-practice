@@ -1,10 +1,15 @@
 # ignore any virtual environment 
-pyProject
+# pyProject
 
 # python files (downloaded)
 
 # jupyter notebook checkpoints
 python/.ipynb_checkpoints
+pyProject/.ipynb_checkpoints
+pyProject/Include
+pyProject/Lib
+pyProject/Scripts
+pyProject/pyvenv.cfg
 
 # any executable
 *.exe
