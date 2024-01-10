@@ -9,6 +9,12 @@ Notes for java:
 [Java-oops](./java/Java-oops-README.md)
 
 3. Python for Digital Image Processing
+   [DIP](./python/oepnCV.ipynb)
+
+[Python Assignment](./pyProject/Python_Assignment.md)
+
+[DIP Assignment](./python/Assignment_DIP.ipynb)
+[part 2](./python/dip2.ipynb)
 
 4.Python Basic Concepts
 
