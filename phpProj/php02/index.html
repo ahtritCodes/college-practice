@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Queries</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>SQL Queries - Student Attendance System</h1>
+
+        <!-- query 1 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    1. Count the number of faculties with "Ph.D" degree.
+                </div>
+                <div class="icon" id="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT COUNT(fid)
+                    FROM faculty
+                    WHERE degree = 'Ph.D';
+                </pre>
+                <img src="./images/01a.jpg" alt="solution 1">
+            </div>
+        </div>
+
+        <!-- query 2 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    2. List all students of "B.Sc" course who have attended at least one class be taken by "Prof.A.Mondal".
+                </div>
+                <div class="icon" id="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT DISTINCT s.sid, s.sname
+                    FROM student s
+                    JOIN attendance a ON s.sid = a.sid
+                    JOIN faculty f ON a.fid = f.fid
+                    WHERE s.course LIKE "B.Sc%"
+                    AND f.fname = "Prof.A. Mondal";
+                </pre>
+                <img src="./images/01b.jpg" alt="solution 2">
+            </div>
+        </div>
+
+        <!-- query 3 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    3. Calculate subject wise total number of classes held.
+                </div>
+                <div class="icon" class="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT a.subject AS "Subject",
+                    SUM(a.no_of_class) AS "Total Classes"
+                    FROM attendance a
+                    GROUP BY a.subject;
+                </pre>
+                <img src="./images/01c.jpg" alt="solution 3">
+            </div>
+        </div>
+
+        <!-- query 4 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    4. Print details of students (name, course, year, subject, date of class) of "B.A." course with subjects "ENGLISH" and "ECONOMICS".
+                </div>
+                <div class="icon" class="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT S.Sname AS "Name",
+                        S.Course AS "Course",
+                        S.syear AS "Year",
+                        A.Subject AS "Subject",
+                        A.Date_of_class AS "Date of class"
+                    FROM Student S
+                    JOIN Attendance A ON S.SID = A.SID
+                    WHERE S.Course LIKE 'B.A%'
+                    AND A.Subject IN ('ENGLISH', 'ECONOMICS');
+                </pre>
+                <img src="./images/01d.jpg" alt="solution 4">
+            </div>
+        </div>
+
+        <!-- query 5 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    5. Show name of oldest faculty.
+                </div>
+                <div class="icon" class="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT f.fname AS "Oldest Faculty"
+                    FROM faculty f
+                    WHERE f.age = (
+                        SELECT MAX(age)
+                        FROM faculty
+                    );
+                </pre>
+                <img src="./images/01e.jpg" alt="solution 5">
+            </div>
+        </div>
+
+        <!-- query 6 -->
+        <div class="question-container">
+            <div class="question" onclick="toggleButton(this)">
+                <div>
+                    6. Print name, phone of all students having surname "Das" and have attended classes between 20<sup>th</sup> Feb, 2023 to 30<sup>th</sup> Feb, 2023.
+                </div>
+                <div class="icon" class="toggleBtn">+</div>
+            </div>
+            <div class="answer">
+                <pre>
+                    SELECT DISTINCT s.sname AS "Student Name",
+                    s.phone AS "Student Phone"
+                FROM student s
+                    JOIN attendance a ON s.sid = a.sid
+                WHERE SUBSTRING_INDEX(s.sname, " ", -1) = 'Das'
+                    AND a.date_of_class IN (
+                        SELECT date_of_class
+                        FROM attendance
+                        WHERE date_of_class >= '2023-02-20'
+                            AND date_of_class <= '2023-02-28'
+                    );
+                </pre>
+                <img src="./images/01f.jpg" alt="solution 6">
+            </div>
+        </div>
+
+        <script>
+            function toggleButton(element) {
+                var answer = element.nextElementSibling;
+                var btn = element.children[1];
+                btn.innerText = (btn.innerText === '+' ? '-' : '+');
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none'
+                } else {
+                    answer.style.display = 'block'
+                }
+            }
+        </script>
+</body>
+
+</html>
