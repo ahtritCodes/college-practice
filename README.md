@@ -21,4 +21,4 @@ Notes for java:
 [Python Concepts](./python/python-notes.md)
 
 5. PHP Assignments
-[homepage](./phpProj)
+   [homepage](./phpProj/index.html)
