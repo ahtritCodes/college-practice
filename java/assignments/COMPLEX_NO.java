@@ -99,16 +99,16 @@ public class COMPLEX_NO {
                     System.out.println("\tEnter two complex numbers");
                     A = getInputs(sc);
                     B = getInputs(sc);
-                    res = A.add(B);
                     System.out.print("\tSum of " + A.toString() + " and " + B.toString() + " : ");
+                    res = A.add(B);
                     System.out.println(res.toString());
                     break;
                 case 4:
                     System.out.println("\tEnter two complex numbers");
                     A = getInputs(sc);
                     B = getInputs(sc);
-                    res = A.add(B);
                     System.out.print("\tDifference of " + A.toString() + " and " + B.toString() + " : ");
+                    res = A.add(B);
                     System.out.println(res.toString());
                     break;
                 case 5:
